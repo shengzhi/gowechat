@@ -1,2 +1,2 @@
 # gowechat
-Wechat development framework in go lang
+It's a play toy, for learning how to develop Wechat application with go lang
