@@ -20,7 +20,7 @@ func main() {
 	wxHandler.DefaultHandler = wxapi.MsgHandlerFunc(defaultMsgHandler)
 	//wxHandler.Register(wxapi.MsgTypeText, textMsgHandler)
 	http.Handle("/", wxHandler)
-	err := http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(":80", nil)
 	if err != nil {
 		log.Fatalln("Wechat server launch failed, error:", err)
 	}
