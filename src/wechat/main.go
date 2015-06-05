@@ -15,17 +15,6 @@ const (
 
 func main() {
 	wxapi.RunTokenServer(appid, secret)
-
-	go func() {
-		for {
-			if token,err := wxapi.GetToken(false);err == nil{
-				fmt.Printf("Token: %s\r\n", token)
-			}else{
-				log.Println(err)
-			}
-			time.Sleep(time.Duration(10) * time.Second)
-		}
-	}()
 	log.Println("wechat server: start!")
 	wxHandler := wxapi.NewHandler()
 	wxHandler.DefaultHandler = wxapi.MsgHandlerFunc(defaultMsgHandler)
