@@ -7,7 +7,7 @@ ENV GOPATH /gopath/app
 ADD . /gopath/app/
 
 RUN go get github.com/shengzhi/gowechat
-RUN go install github.com/shengzhi/wechat
+RUN go install github.com/shengzhi/gowechat
 
 EXPOSE 80
 CMD ["/gopath/app/bin/wechat"]

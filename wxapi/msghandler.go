@@ -5,10 +5,10 @@ import(
 	"encoding/xml"
 	"bytes"
 	"fmt"
-	"github.com/shengzhi/wechat/auth"
+	"gowechat/auth"
 	"strings"
 	"log"
-	"github.com/shengzhi/wechat/util"
+	"gowechat/util"
 )
 
 type MsgHandlerFunc func(*WXMsgRequest) interface{}
