@@ -6,8 +6,8 @@ WORKDIR /gopath/app
 ENV GOPATH /gopath/app
 ADD . /gopath/app/
 
-RUN go get github.com/shengzhi/gowechat
+# RUN go get github.com/shengzhi/gowechat
 RUN go install gowechat
 
 EXPOSE 80
-CMD ["/gopath/app/bin/wechat"]
+CMD ["/gopath/app/bin/gowechat"]
