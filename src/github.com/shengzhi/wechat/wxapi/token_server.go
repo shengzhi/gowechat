@@ -3,7 +3,7 @@ package wxapi
 import(
 	"fmt"
 	"time"
-	"wechat/util"
+	"github.com/shengzhi/wechat/util"
 	"encoding/json"
 	"log"
 	"bytes"

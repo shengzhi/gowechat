@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 	"time"
-	"wechat/wxapi"
+	"github.com/shengzhi/wechat/wxapi"
 )
 
 const (

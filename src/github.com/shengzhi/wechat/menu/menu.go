@@ -1,9 +1,9 @@
 package menu
 
 import(
-	"encoding/json"
-	"wechat/util"
-	"wechat/wxapi"
+	_ "encoding/json"
+	"github.com/shengzhi/wechat/util"
+	"github.com/shengzhi/wechat/wxapi"
 	"fmt"
 	"errors"
 )
@@ -58,13 +58,15 @@ type Result struct{
 }
 
 func Create(m *Menu) error{
-	if token,err := wxapi.GetToken(false);err != nil{
+	token,err := wxapi.GetToken(false)
+	if err != nil{
 		return err
 	}
-	ur := fmt.Sprintf(url_createMenu,token)
+	url := fmt.Sprintf(url_createMenu,token)
 	var result Result
 	if err = util.PostJSON(url,m,&result);err != nil{return nil}
 	if result.Code != retCode_Success{
 		return errors.New("wechat server return error:"+result.Message)
 	}
+	return nil
 }
