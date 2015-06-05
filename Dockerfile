@@ -2,9 +2,9 @@ FROM google/golang
 MAINTAINER jong "gongshengzhi@gmail.com"
 
 # Build app
-WORKDIR /gopath/app/src
+RUN mkdir -p /gopath/app/src
 ENV GOPATH /gopath/app
-ADD ./gowechat /gopath/app/src
+COPY ./gowechat /gopath/app/src
 
 # RUN go get github.com/shengzhi/gowechat
 RUN go install gowechat
