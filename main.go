@@ -10,8 +10,8 @@ import (
 )
 
 func main() {
-	appid := os.Getevn("GOWECHAT_APP_ID")
-	secret:= os.Getevn("GOWECHAT_SECRET")
+	appid := os.Getenv("GOWECHAT_APP_ID")
+	secret:= os.Getenv("GOWECHAT_SECRET")
 	wxapi.RunTokenServer(appid, secret)
 	log.Println("wechat server: start!")
 	log.Printf("appid:%s,secret:%s\r\n",appid,secret)
