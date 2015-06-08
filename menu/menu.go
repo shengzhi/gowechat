@@ -2,8 +2,8 @@ package menu
 
 import(
 	_ "encoding/json"
-	"gowechat/util"
-	"gowechat/wxapi"
+	"github.com/shengzhi/gowechat/util"
+	"github.com/shengzhi/gowechat/wxapi"
 	"fmt"
 	"errors"
 )
