@@ -2,12 +2,12 @@ FROM google/golang
 MAINTAINER jong "gongshengzhi@gmail.com"
 
 # Build app
-RUN mkdir -p /gopath/app/src
+WORKDIR /gopath/app
 ENV GOPATH /gopath/app
-COPY ./gowechat /gopath/app/src
+ADD . /gopath/app/
 
-# RUN go get github.com/shengzhi/gowechat
-RUN go install gowechat
+RUN go get github.com/shengzhi/gowechat
+RUN go install github.com/shengzhi/gowechat
 
 EXPOSE 80
 CMD ["/gopath/app/bin/gowechat"]
