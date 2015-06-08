@@ -9,8 +9,8 @@ import (
 )
 
 const (
-	appid  = "wx5ba7d468fb057942"
-	secret = "dcf52903fd32e8908ae6cccb4a0b1c4b"
+	appid  = ""
+	secret = ""
 )
 
 func main() {
