@@ -6,16 +6,15 @@ import (
 	"net/http"
 	"time"
 	"github.com/shengzhi/gowechat/wxapi"
-)
-
-const (
-	appid  = ""
-	secret = ""
+	"os"
 )
 
 func main() {
+	appid := os.Getevn("GOWECHAT_APP_ID")
+	secret:= os.Getevn("GOWECHAT_SECRET")
 	wxapi.RunTokenServer(appid, secret)
 	log.Println("wechat server: start!")
+	log.Printf("appid:%s,secret:%s\r\n",appid,secret)
 	wxHandler := wxapi.NewHandler()
 	wxHandler.DefaultHandler = wxapi.MsgHandlerFunc(defaultMsgHandler)
 	//wxHandler.Register(wxapi.MsgTypeText, textMsgHandler)
@@ -32,7 +31,7 @@ func defaultMsgHandler(r *wxapi.WXMsgRequest) interface{} {
 	res.FromUserName = r.ToUserName
 	res.ToUserName = r.FromUserName
 	res.CreateTime = time.Now().Unix()
-	res.Content = "这是一个悲伤的故事"
+	res.Content = "消息已收到，正在考虑怎么回复..."
 	res.MsgType = wxapi.MsgTypeText
 	return &res
 }
