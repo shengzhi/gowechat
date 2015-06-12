@@ -7,19 +7,22 @@ import (
 	"time"
 	"github.com/shengzhi/gowechat/wxapi"
 	"os"
+	ctl "github.com/shengzhi/gowechat/controller"
 )
 
 func main() {
 	appid := os.Getenv("GOWECHAT_APP_ID")
 	secret:= os.Getenv("GOWECHAT_SECRET")
-	wxapi.RunTokenServer(appid, secret)
+	//wxapi.RunTokenServer(appid, secret)
 	log.Println("wechat server: start!")
 	log.Printf("appid:%s,secret:%s\r\n",appid,secret)
 	wxHandler := wxapi.NewHandler()
 	wxHandler.DefaultHandler = wxapi.MsgHandlerFunc(defaultMsgHandler)
 	//wxHandler.Register(wxapi.MsgTypeText, textMsgHandler)
 	http.Handle("/", wxHandler)
-	err := http.ListenAndServe(":80", nil)
+	http.Handle("/static/", http.FileServer(http.Dir("C:\\mygo\\bin")))
+	http.Handle("/menu/",&ctl.HomeHandler{})
+	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		log.Fatalln("Wechat server launch failed, error:", err)
 	}
